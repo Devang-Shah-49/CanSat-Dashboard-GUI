@@ -51,7 +51,7 @@ html, body {
 
 .nav--collapsed {
     width: var(--nav-icon-width);
-    /* width: 80px; */
+    /* width: 90px; */
 }
 .nav--collapsed .nav__label {
     display: none;
@@ -115,7 +115,18 @@ html, body {
 
 .nav__icon-container {
     width: var(--nav-icon-width);
-    /* width:80%; */
+    /* width:50px; */
+    /* height:80%; */
+    /* width:inherit; */
+    height: var(--nav-icon-width); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.nav--collapsed .nav__icon-container {
+    /* width: var(--nav-icon-width); */
+    width:62px;
     /* height:80%; */
     /* width:inherit; */
     height: var(--nav-icon-width); 
@@ -429,6 +440,21 @@ hr {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.8);
     transition: 0.3s;
 }
+.card2 {
+    width: 190px;                 /* Set width of cards */
+    height: 65px;
+    border: 3px solid #74B72E;    /* Set up Border */
+    border-radius: 12px;           /* Slightly Curve edges */
+    overflow: hidden;             /* Fixes the corners */
+    display: flex;                /* Children use Flexbox */
+    flex-direction: column;       /* Rotate Axis */
+    margin-top: 20px;
+    margin-right: 35px;
+    margin-left: 250px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.8);
+    transition: 0.3s;
+}
 .card-header {
     color: black;
     text-align: center;
@@ -541,7 +567,7 @@ hr {
     transition: 0.5s;
     border-radius: 10px; /* 10px rounded corners */
   }
-.graph-card3{
+/* .graph-card3{
     height: 250px;
     width: 400px;
     padding: 0;
@@ -549,15 +575,15 @@ hr {
     margin-bottom: 40px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
     transition: 0.5s;
-    border-radius: 10px; /* 5px rounded corners */
-  }
-.grid3{
+    border-radius: 10px; 5px rounded corners
+  } */
+/* .grid3{
     display:grid;
     grid-template-columns: repeat(3, 400px);
     grid-gap: 33px;
     padding-top: 35px;
     padding-left: 45px;
-}
+} */
 .cad{
     width: 10.5rem;                 /* Set width of cards */
     height: 3.3rem;
@@ -605,6 +631,26 @@ hr {
     font-weight: bold;
     margin-left: 3.75rem;
     margin-top: 0px;
+}
+
+.map-y {
+    display: grid;
+    grid-template-columns: repeat(2,500px);
+    margin-top:40px;
+    grid-gap:50px;
+    justify-content: center;
+}
+.gridmap_x{
+    display:grid;
+    grid-template-rows: repeat(5, 100px);
+    /* grid-gap: auto; */
+    grid-gap: 15px;
+    margin-top: -20px;
+    /* margin-left: 50px; */
+}
+#gpsmap{
+    height:550px;
+    border-radius: 20px;
 }
 
 

@@ -11,6 +11,14 @@
     <link href="css/index.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fb3fe1ed29.js" crossorigin="anonymous"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+    <!-- leaflet dependencies -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://unpkg.com/wrld.js@1.x.x"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -37,7 +45,7 @@
                             <!-- > -->
                         </i>
                     </div>
-                    <!-- > -->
+                    >>
                 <span class="nav__label">DASHBOARD</span>
                 <span class="nav__label1" style="display: none;margin-left: -95% !important;font-size: 0.7rem !important;font-weight: bold !important;">DASHBOARD</span>
             </button>
@@ -55,7 +63,7 @@
                         <!-- > -->
                     </i>
                 </div>
-                <!-- > -->
+                >>
             <span class="nav__label">MAP</span>
             <span class="nav__label1" style="display: none;">MAP</span>
         </button>
@@ -74,7 +82,7 @@
                         <!-- > -->
                     </i>
                 </div>
-                <!-- > -->
+                >>
                 <span class="nav__label">C_GRAPHS</span>
                 <span class="nav__label1" style="display: none;margin-left: -94% !important;">C_GRAPHS</span>
             </button>
@@ -92,7 +100,7 @@
                         <!-- > -->
                     </i>
                 </div>
-                <!-- > -->
+                >>
                 <span class="nav__label">C_CSV</span>
                 <span class="nav__label1" style="display: none;margin-left: -75% !important;">C_CSV</span>
             </button>
@@ -118,7 +126,7 @@
                         <!-- > -->
                     </i>
                 </div>
-                <!-- > -->
+                >>
                 <span class="nav__label">TP GRAPHS</span>
                 <span class="nav__label1" style="display: none;margin-left: -91% !important;font-size: 0.7rem !important;">TP GRAPHS</span>
             </button>
@@ -136,7 +144,7 @@
                         <!-- > -->
                     </i>
                 </div>
-                <!-- > -->
+                >>
                 <span class="nav__label">TP CSV</span>
                 <span class="nav__label1" style="display: none;margin-left: -83% !important;">TP CSV</span>
             </button>
@@ -162,19 +170,17 @@
                             <div class="cad">
                                 <!-- <div class="card-header">TEAM ID</div> -->
                                 <div class="card-man">
-                                <!-- <i class="material-icons">hot_tub</i> -->
                                 <i class="fas fa-users fa-2x" style="padding: 8px"></i>
                                 <div class="main-head">TEAM ID</div>
                                 <div class="main-desc">9999</div>
                                 </div>
                             </div>
                             <div class="cad">
-                                <!-- <div class="card-header">TEAM ID</div> -->
+                                <!-- <div class="card-header">TEAM ID</div> .<small>21</small>-->
                                 <div class="card-man">
-                                <!-- <i class="material-icons">hot_tub</i> -->
                                 <i class="fas fa-clock fa-2x" style="padding: 8px"></i>
                                 <div class="main-head1">MISSION TIME</div>
-                                <div id="time-value" class="main-desc1">1:12:45.<small>21</small></div>
+                                <div id="time-value" class="main-desc1">1:12:45</div>
                                 </div>
                             </div>
                         </div>
@@ -222,103 +228,202 @@
                 </div>
                 
             </div>
-            <div class="grid_x">
-                <div class="card">
-                    <div class="card-header">PACKET COUNT</div>
-                    <div class="card-main">
+
+            <!-- dashboard html -->
+            <div id="dashboard-container" class="dashboard_c" style='display: none;'>
+                <div class="grid_x">
+                    <div class="card">
+                        <div class="card-header">PACKET COUNT</div>
+                        <div class="card-main">
+                            <!-- <i class="material-icons">hot_tub</i> -->
+                            <div class="main-description">24</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">PACKET TYPE</div>
+                        <div class="card-main">
                         <!-- <i class="material-icons">hot_tub</i> -->
-                        <div class="main-description">24</div>
+                        <div class="main-description">C</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">SOFTWARE STATE</div>
+                        <div class="card-main">
+                        <!-- <i class="material-icons">hot_tub</i> -->
+                        <div class="main-description">Deploy</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header"><small>TP SOFTWARE STATE</small></div>
+                        <div class="card-main">
+                        <!-- <i class="material-icons">hot_tub</i> -->
+                        <div class="main-description">Target Pointing</div>
+                        </div>
+                    </div>
+                    <!-- <div class="card">
+                        <div class="card-header">ALTITUDE</div>
+                        <div class="card-main">
+                        <div class="main-description">720 m</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">TP - ALTITUDE</div>
+                        <div class="card-main">
+                        <div class="main-description">720 m</div>
+                        </div>
+                    </div> -->
+                    
+                </div>
+                <div class="grid4">
+                    <div class="card">
+                        <div class="card-header">MODE</div>
+                        <div class="card-main">
+                        <!-- <i class="material-icons">hot_tub</i> -->
+                        <div class="main-description">Simulation</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">TP - RELEASED</div>
+                        <div class="card-main">
+                        <!-- <i class="material-icons">hot_tub</i> -->
+                        <div class="main-description">R</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">POINTING ERROR</div>
+                        <div class="card-main">
+                        <!-- <i class="material-icons">hot_tub</i> -->
+                        <div class="main-description">45`</div>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header">PACKET TYPE</div>
-                    <div class="card-main">
-                    <!-- <i class="material-icons">hot_tub</i> -->
-                    <div class="main-description">C</div>
-                    </div>
+
+                <div class="grid2">
+                    <figure class="highcharts-figure">
+                        <div class="graph-card" id="container6"></div> <!---altitude-->
+                    </figure>
+                    <figure class="highcharts-figure">
+                        <div class="graph-card" id="container5"></div> <!---gyroscope-->
+                    </figure>
                 </div>
-                <div class="card">
-                    <div class="card-header">SOFTWARE STATE</div>
-                    <div class="card-main">
-                    <!-- <i class="material-icons">hot_tub</i> -->
-                    <div class="main-description">Deploy</div>
-                    </div>
+
+                <div class="grid2">
+                    <figure class="highcharts-figure">
+                        <div class="graph-card" id="container4"></div> <!---temperature-->
+                    </figure>
+                    <figure class="highcharts-figure">
+                        <div class="graph-card" id="container3"></div> <!---accelerometer-->
+                    </figure>
+                    
                 </div>
-                
-                <div class="card">
-                    <div class="card-header"><small>TP SOFTWARE STATE</small></div>
-                    <div class="card-main">
-                    <!-- <i class="material-icons">hot_tub</i> -->
-                    <div class="main-description">Target Pointing</div>
-                    </div>
+
+                <div class="grid2">
+                    <figure class="highcharts-figure">
+                        <div class="graph-card" id="container2"></div> <!---Voltage-->
+                    </figure>
+                    <figure class="highcharts-figure">
+                        <div class="graph-card" id="container1"></div> <!---magnetometer-->
+                    </figure>
                 </div>
-                <!-- <div class="card">
-                    <div class="card-header">ALTITUDE</div>
-                    <div class="card-main">
-                    <div class="main-description">720 m</div>
+                <br>
+                <br>
+            </div>
+
+
+            <!-- map html -->
+            <div id="map-container" class="map_c" style="display: none">
+                <div class="map-y">
+                    <div class="gridmap_x" style="margin-left: 19px;">
+                        <div class="card">
+                            <div class="card-header">GPS TIME</div>
+                            <div class="card-main">
+                                <!-- <i class="material-icons">hot_tub</i> -->
+                                <div class="main-description">1:12:45</div>
+                            </div>
+                        </div>
+                        <div class="card2">
+                            <div class="card-header">LATITUDE</div>
+                            <div class="card-main">
+                            <!-- <i class="material-icons">hot_tub</i> -->
+                                <div class="main-description" id="textlat">-37.51</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">GPS ALTITUDE</div>
+                            <div class="card-main">
+                            <!-- <i class="material-icons">hot_tub</i> -->
+                                <div class="main-description">720 m</div>
+                            </div>
+                        </div>
+                        <div class="card2">
+                            <div class="card-header">LONGITUDE</div>
+                            <div class="card-main">
+                            <!-- <i class="material-icons">hot_tub</i> -->
+                                <div class="main-description" id="textlong">52.68</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" >SATELLITES</div>
+                            <div class="card-main">
+                            <!-- <i class="material-icons">hot_tub</i> -->
+                            <div class="main-description">7</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">TP - ALTITUDE</div>
-                    <div class="card-main">
-                    <div class="main-description">720 m</div>
-                    </div>
+                    <div id="gpsmap"></div>
+                <!-- <div>
+                    <img src="images/map.png" width="500" height="550">
                 </div> -->
+            </div>
+        </div>
+
+        <!-- csv html -->
+        <div id="c_csv-container" class="c_csv_c" style="display: none">
+            <div class="container  mb-5 mt-5" style="margin-top:40px; margin-bottom:40px; margin-left:40px; margin-right:40px;">
+                <div class="grid6">
+                    <a href="images/test1.csv" download="9999_DJS Arya-India.csv" class="download-btn">
+                        Download .CSV 
+                        <i class="fa fa-download"></i>
+                    </a>
+                    <p style="font-weight: bold; font-size:20px;">CONTAINER TELEMETRY DATA</p>
+                    <input type="text" id="myInput" placeholder="Search...">
+                        <i class="fa fa-search"></i>
+                    </input>
+                </div>
                 
-            </div>
-            <div class="grid4">
-                <div class="card">
-                    <div class="card-header">MODE</div>
-                    <div class="card-main">
-                    <!-- <i class="material-icons">hot_tub</i> -->
-                    <div class="main-description">Simulation</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">TP - RELEASED</div>
-                    <div class="card-main">
-                    <!-- <i class="material-icons">hot_tub</i> -->
-                    <div class="main-description">R</div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">POINTING ERROR</div>
-                    <div class="card-main">
-                    <!-- <i class="material-icons">hot_tub</i> -->
-                    <div class="main-description">45`</div>
-                    </div>
-                </div>
-            </div>
+                <table class="table table-striped table-bordered mydatatable" id="random">
+                    <thead class='stick'>
+                        <tr>
+                            <th>Team ID</th>
+                            <th>Mission Time</th>
+                            <th>Packet Count</th>
+                            <th>Packet Type</th>
+                            <th>Mode</th>
+                            <th>TP Released</th>
+                            <th>Altitude</th>
+                            <th>Temp</th>
+                            <th>Voltage</th>
+                            <th>GPS Time</th>
+                            <th>GPS Latitude</th>
+                            <th>GPS Longitude</th>
+                            <th>GPS Altitude</th>
+                            <th>GPS Sats</th>
+                            <th>Software State</th>
+                            <th>CMD Echo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            <div class="grid2">
-                <figure class="highcharts-figure">
-                    <div class="graph-card" id="container6"></div> <!---altitude-->
-                </figure>
-                <figure class="highcharts-figure">
-                    <div class="graph-card" id="container5"></div> <!---gyroscope-->
-                </figure>
-            </div>
+                    </tbody>
+                    <tfoot>
 
-            <div class="grid2">
-                <figure class="highcharts-figure">
-                    <div class="graph-card" id="container4"></div> <!---temperature-->
-                </figure>
-                <figure class="highcharts-figure">
-                    <div class="graph-card" id="container3"></div> <!---accelerometer-->
-                </figure>
-                
+                    </tfoot>
+                </table>
             </div>
+        </div>
 
-            <div class="grid2">
-                <figure class="highcharts-figure">
-                    <div class="graph-card" id="container2"></div> <!---Voltage-->
-                </figure>
-                <figure class="highcharts-figure">
-                    <div class="graph-card" id="container1"></div> <!---magnetometer-->
-                </figure>
-            </div>
-            <br>
-            <br>
+
         </main>
     </div>
 
@@ -330,5 +435,6 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://code.highcharts.com/modules/boost.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/map.js"></script>
 </body>
 </html>

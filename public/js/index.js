@@ -24,7 +24,7 @@ btns.forEach((btn) => {
             else if (open.className == e.target.className && open.className == "map_c"){
                 open.style = "display: block !important;"
             }
-            else if (open.className == e.target.className && open.className == "csv_c"){
+            else if (open.className == e.target.className && open.className == "c_csv_c"){
                 open.style = "display: block !important;"
             }
             else{
