@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJS ARYA INDIA</title>
+    <link href="images/Blue Logo.jpg" rel="icon" type="image/jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/index.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fb3fe1ed29.js" crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body>
+    <div class="page-container">
+        <nav class="nav">
+            <!-- <div class="nav__border"></div> -->
+            <a class="nav_link nav__border">
+                <div class="nav__icon-container">
+                    <i class="fas fa-bars fa-2x"></i>
+                </div>
+                <span class="nav__label" style="font-size:20px; font-weight:bold; color:white;">DJS ARYA</span>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <!-- <a href="#" class="nav_link"  title="Dashboard">
+                <div class="nav__icon-container">
+                    <i class="fas fa-tachometer-alt fa-2x"></i>
+                </div>
+                <span class="nav__label">DASHBOARD</span>
+                <span class="nav__label1" style="display: none;margin-left: -96% !important;font-size: 0.7rem !important;font-weight: bold !important;">DASHBOARD</span>
+            </a> -->
+            <button id="display-dashboard" class="dashboard_c" title="Dashboard">
+                    <div class="nav__icon-container">
+                        <i class="fas fa-tachometer-alt fa-2x" aria-hidden="true">
+                            <!-- > -->
+                        </i>
+                    </div>
+                    <!-- > -->
+                <span class="nav__label">DASHBOARD</span>
+                <span class="nav__label1" style="display: none;margin-left: -95% !important;font-size: 0.7rem !important;font-weight: bold !important;">DASHBOARD</span>
+            </button>
+            <hr class="sidebar-divider my-0">
+            <!-- <a href="map.html" class="nav_link" title="GPS MAPPING">
+                <div class="nav__icon-container"  >
+                    <i class="fas fa-map-marked-alt fa-2x"></i>
+                </div>
+                <span class="nav__label">MAP</span>
+                <span class="nav__label1" style="display: none;">MAP</span>
+            </a> -->
+            <button id="display-map" class="map_c" title="GPS MAP">
+                <div class="nav__icon-container">
+                    <i class="fas fa-map-marked-alt fa-2x" aria-hidden="true">
+                        <!-- > -->
+                    </i>
+                </div>
+                <!-- > -->
+            <span class="nav__label">MAP</span>
+            <span class="nav__label1" style="display: none;">MAP</span>
+        </button>
+            <hr class="sidebar-divider my-0">
+            <div style="text-align:center; margin: 10px;"><span class="nav__label" style="font-size:15px;  color:white;">CONTAINER</span></div>
+            <!-- <a href="#" class="nav_link" title="CONTAINER GRAPHS">
+                <div class="nav__icon-container"  >
+                    <i class="fas fa-chart-area fa-2x"></i>
+                </div>
+                <span class="nav__label">C_GRAPHS</span>
+                <span class="nav__label1" style="display: none;margin-left: -95% !important;">C_GRAPHS</span>
+            </a> -->
+            <button id="display-c_graphs" class="c_graphs_c" title="CONTAINER GRAPHS">
+                <div class="nav__icon-container">
+                    <i class="fas fa-chart-area fa-2x" aria-hidden="true">
+                        <!-- > -->
+                    </i>
+                </div>
+                <!-- > -->
+                <span class="nav__label">C_GRAPHS</span>
+                <span class="nav__label1" style="display: none;margin-left: -94% !important;">C_GRAPHS</span>
+            </button>
+            <!-- <hr class="sidebar-divider my-0"> -->
+            <!-- <a href="csv.html" class="nav_link" title="CONTAINER CSV">
+                <div class="nav__icon-container"  >
+                    <i class="fas fa-table fa-2x"></i>
+                </div>
+                <span class="nav__label">C_CSV</span>
+                <span class="nav__label1" style="display: none; margin-left: -78%!important;">C_CSV</span>
+            </a> -->
+            <button id="display-c_csv" class="c_csv_c" title="CONTAINER CSV">
+                <div class="nav__icon-container">
+                    <i class="fas fa-table fa-2x" aria-hidden="true">
+                        <!-- > -->
+                    </i>
+                </div>
+                <!-- > -->
+                <span class="nav__label">C_CSV</span>
+                <span class="nav__label1" style="display: none;margin-left: -75% !important;">C_CSV</span>
+            </button>
+            <hr class="sidebar-divider my-0">
+            <div style="text-align:center; margin: 10px;"><span class="nav__label" style="font-size:15px;  color:white;">PAYLOAD</span></div>
+            <!-- <a href="#" class="nav_link">
+                <div class="nav__icon-container">
+                    <i class="fab fa-battle-net fa-3x"></i>
+                </div>
+                <span class="nav__label">  PAYLOAD</span>
+            </a>
+            <hr class="sidebar-divider my-0"> -->
+            <!-- <a href="#" class="nav_link" title="PAYLOAD GRAPHS">
+                <div class="nav__icon-container"  >
+                    <i class="fas fa-chart-line fa-2x"></i>
+                </div>
+                <span class="nav__label">TP_GRAPHS</span>
+                <span class="nav__label1" style="display: none; margin-left: -93% !important;font-size:0.7rem !important;">TP_GRAPHS</span>
+            </a> -->
+            <button id="display-tp_graphs" class="tp_graphs_c" title="PAYLOAD GRAPHS">
+                <div class="nav__icon-container">
+                    <i class="fas fa-chart-line fa-2x" aria-hidden="true">
+                        <!-- > -->
+                    </i>
+                </div>
+                <!-- > -->
+                <span class="nav__label">TP GRAPHS</span>
+                <span class="nav__label1" style="display: none;margin-left: -91% !important;font-size: 0.7rem !important;">TP GRAPHS</span>
+            </button>
+            <!-- <hr class="sidebar-divider my-0"> -->
+            <!-- <a href="#" class="nav_link" title="PAYLOAD CSV">
+                <div class="nav__icon-container"  >
+                    <i class="fas fa-file-csv fa-2x"></i>
+                </div>
+                <span class="nav__label">TP_CSV</span>
+                <span class="nav__label1" style="display: none; margin-left:-83%!important;">TP_CSV</span>
+            </a> -->
+            <button id="display-tp_csv" class="tp_csv_c" title="PAYLOAD CSV">
+                <div class="nav__icon-container">
+                    <i class="fas fa-file-csv fa-2x" aria-hidden="true">
+                        <!-- > -->
+                    </i>
+                </div>
+                <!-- > -->
+                <span class="nav__label">TP CSV</span>
+                <span class="nav__label1" style="display: none;margin-left: -83% !important;">TP CSV</span>
+            </button>
+            <hr class="sidebar-divider my-0">
+            <!-- <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div> -->
+        </nav>
+        <main class="main" style="background-color: white;">
+            <!-- <div class="wrapper">
+                <nav class="shadow">
+                    <ul>
+                        <li><img src="images\Indian flag.png" width="50" height="60"></li>
+                    </ul>
+                </nav>
+            </div> -->
+            <div class="main_content">
+                <div class="header">
+                    <!-- Topbar -->
+                    <div class="grid-x">
+                        <img src="images\Indian flag.png" width="140px" height="120px">
+                        <div class="grdy">
+                            <div class="cad">
+                                <!-- <div class="card-header">TEAM ID</div> -->
+                                <div class="card-man">
+                                <!-- <i class="material-icons">hot_tub</i> -->
+                                <i class="fas fa-users fa-2x" style="padding: 8px"></i>
+                                <div class="main-head">TEAM ID</div>
+                                <div class="main-desc">9999</div>
+                                </div>
+                            </div>
+                            <div class="cad">
+                                <!-- <div class="card-header">TEAM ID</div> -->
+                                <div class="card-man">
+                                <!-- <i class="material-icons">hot_tub</i> -->
+                                <i class="fas fa-clock fa-2x" style="padding: 8px"></i>
+                                <div class="main-head1">MISSION TIME</div>
+                                <div id="time-value" class="main-desc1">1:12:45.<small>21</small></div>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="images/arya transparent logo.jpeg" width="140" height="120" >
+                        <!--<div class="card">
+                            <div class="card-header">MISSION TIME</div>
+                            <div class="card-main">
+                            <i class="material-icons">hot_tub</i> -->
+                            <!--<div class="main-description">12m 45s</div>
+                            </div>
+                        </div> -->
+                        <div class="gdy">
+                            <div class="flex">
+                            <!-- <form> -->
+                                <!-- <label for="fname">Enter a Command:</label><br> -->
+                                <input class="cmd" type="text" id="fname" name="fname" placeholder="Enter a Command">
+                                <!-- <br> -->
+                                <!-- <input class="sub" type="submit" value="Send"> -->
+                                <!-- <div class="btn" style="margin-left: -40px;"> -->
+                                    <button style="width:0px;height:0; margin-bottom:40%; border:none;padding:0;background: none; margin-left: 15%;outline: none;">
+                                        <!-- <i class="fa-solid fa-paper-plane" style="transform:rotate(50deg)"></i> -->
+                                        <i class="fa-solid fa-location-arrow fa-3x send-btn"></i>
+                                    </button>
+                                <!-- </div> -->
+                            <!-- </form> -->
+                            </div>
+                            <div class="flex">
+                                <div class="text" style="width:12.5rem;height:2.8rem">
+                                    <p style="font-size:1rem;font-weight: 550;display: inline-block;">SIMULATION MODE</p>
+                                </div>
+                                <div class="toggle-box" style="margin-left:-40px;">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-container">
+                            <button class='item' type="button" onclick="">START</button>
+                            <button class='item' type="button" onclick="">STOP</button>
+                            <button class='item' type="button" onclick="">CALIBRATE</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="grid_x">
+                <div class="card">
+                    <div class="card-header">PACKET COUNT</div>
+                    <div class="card-main">
+                        <!-- <i class="material-icons">hot_tub</i> -->
+                        <div class="main-description">24</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">PACKET TYPE</div>
+                    <div class="card-main">
+                    <!-- <i class="material-icons">hot_tub</i> -->
+                    <div class="main-description">C</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">SOFTWARE STATE</div>
+                    <div class="card-main">
+                    <!-- <i class="material-icons">hot_tub</i> -->
+                    <div class="main-description">Deploy</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header"><small>TP SOFTWARE STATE</small></div>
+                    <div class="card-main">
+                    <!-- <i class="material-icons">hot_tub</i> -->
+                    <div class="main-description">Target Pointing</div>
+                    </div>
+                </div>
+                <!-- <div class="card">
+                    <div class="card-header">ALTITUDE</div>
+                    <div class="card-main">
+                    <div class="main-description">720 m</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">TP - ALTITUDE</div>
+                    <div class="card-main">
+                    <div class="main-description">720 m</div>
+                    </div>
+                </div> -->
+                
+            </div>
+            <div class="grid4">
+                <div class="card">
+                    <div class="card-header">MODE</div>
+                    <div class="card-main">
+                    <!-- <i class="material-icons">hot_tub</i> -->
+                    <div class="main-description">Simulation</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">TP - RELEASED</div>
+                    <div class="card-main">
+                    <!-- <i class="material-icons">hot_tub</i> -->
+                    <div class="main-description">R</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">POINTING ERROR</div>
+                    <div class="card-main">
+                    <!-- <i class="material-icons">hot_tub</i> -->
+                    <div class="main-description">45`</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid2">
+                <figure class="highcharts-figure">
+                    <div class="graph-card" id="container6"></div> <!---altitude-->
+                </figure>
+                <figure class="highcharts-figure">
+                    <div class="graph-card" id="container5"></div> <!---gyroscope-->
+                </figure>
+            </div>
+
+            <div class="grid2">
+                <figure class="highcharts-figure">
+                    <div class="graph-card" id="container4"></div> <!---temperature-->
+                </figure>
+                <figure class="highcharts-figure">
+                    <div class="graph-card" id="container3"></div> <!---accelerometer-->
+                </figure>
+                
+            </div>
+
+            <div class="grid2">
+                <figure class="highcharts-figure">
+                    <div class="graph-card" id="container2"></div> <!---Voltage-->
+                </figure>
+                <figure class="highcharts-figure">
+                    <div class="graph-card" id="container1"></div> <!---magnetometer-->
+                </figure>
+            </div>
+            <br>
+            <br>
+        </main>
+    </div>
+
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/cylinder.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/boost.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
