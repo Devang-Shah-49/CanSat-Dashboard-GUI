@@ -19,6 +19,8 @@
     <script src="https://unpkg.com/wrld.js@1.x.x"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
 
+    <!-- socket -->
+    <script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -174,7 +176,7 @@
                                 <div class="card-man">
                                 <i class="fas fa-users fa-2x" style="padding: 8px"></i>
                                 <div class="main-head">TEAM ID</div>
-                                <div class="main-desc">9999</div>
+                                <div class="main-desc">1004</div>
                                 </div>
                             </div>
                             <div class="cad">
@@ -239,21 +241,21 @@
                         <div class="card-header">PACKET COUNT</div>
                         <div class="card-main">
                             <!-- <i class="material-icons">hot_tub</i> -->
-                            <div class="main-description">24</div>
+                            <div id="pc_text" class="main-description">24</div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header">PACKET TYPE</div>
                         <div class="card-main">
                         <!-- <i class="material-icons">hot_tub</i> -->
-                        <div class="main-description">C</div>
+                        <div id="pt_text" class="main-description">C</div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header">SOFTWARE STATE</div>
                         <div class="card-main">
                         <!-- <i class="material-icons">hot_tub</i> -->
-                        <div class="main-description">Deploy</div>
+                        <div id="ss_text" class="main-description">Deploy</div>
                         </div>
                     </div>
                     
@@ -283,14 +285,14 @@
                         <div class="card-header">MODE</div>
                         <div class="card-main">
                         <!-- <i class="material-icons">hot_tub</i> -->
-                        <div class="main-description">Simulation</div>
+                        <div id="mode_text" class="main-description">Simulation</div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header">TP - RELEASED</div>
                         <div class="card-main">
                         <!-- <i class="material-icons">hot_tub</i> -->
-                        <div class="main-description">R</div>
+                        <div id="released_text" class="main-description">R</div>
                         </div>
                     </div>
                     <div class="card">
@@ -385,17 +387,17 @@
         <div id="c_csv-container" class="c_csv_c" style="display: none">
             <div class="container  mb-5 mt-5" style="margin-top:40px; margin-bottom:40px; margin-left:40px; margin-right:40px;">
                 <div class="grid6">
-                    <a href="images/container.csv" download="1004_DJS Arya-India.csv" class="download-btn">
+                    <a href="csv/container.csv" download="1004_DJS Arya-India.csv" class="download-btn">
                         Download .CSV 
                         <i class="fa fa-download"></i>
                     </a>
                     <p style="font-weight: bold; font-size:20px;">CONTAINER TELEMETRY DATA</p>
-                    <input type="text" id="myInput" placeholder="Search...">
+                    <input type="text" id="myInput_c" placeholder="Search...">
                         <!-- <i class="fa fa-search"></i> -->
                     </input>
                 </div>
                 
-                <table class="table table-striped table-bordered mydatatable" id="random">
+                <table class="table table-striped table-bordered mydatatable" id="random_c">
                     <thead class='stick'>
                         <tr>
                             <th>Team ID</th>
@@ -416,7 +418,7 @@
                             <th>CMD Echo</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id='c_tbody'>
 
                     </tbody>
                     <tfoot>
@@ -430,17 +432,17 @@
         <div id="tp_csv-container" class="tp_csv_c" style="display: none">
             <div class="container  mb-5 mt-5" style="margin-top:40px; margin-bottom:40px; margin-left:40px; margin-right:40px;">
                 <div class="grid6">
-                    <a href="images/payload.csv" download="6004_DJS Arya-India.csv" class="download-btn">
+                    <a href="csv/payload.csv" download="6004_DJS Arya-India.csv" class="download-btn">
                         Download .CSV 
                         <i class="fa fa-download"></i>
                     </a>
                     <p style="font-weight: bold; font-size:20px;">PAYLOAD TELEMETRY DATA</p>
-                    <input type="text" id="myInput" placeholder="Search...">
+                    <input type="text" id="myInput_tp" placeholder="Search...">
                         <!-- <i class="fa fa-search"></i> -->
                     </input>
                 </div>
                 
-                <table class="table table-striped table-bordered mydatatable" id="random">
+                <table class="table table-striped table-bordered mydatatable" id="random_tp">
                     <thead class='stick'>
                         <tr>
                             <th>Team ID</th>
@@ -463,7 +465,7 @@
                             <th>TP Software State</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id='tp_tbody'>
 
                     </tbody>
                     <tfoot>
@@ -485,5 +487,6 @@
     <script src="https://code.highcharts.com/modules/boost.js"></script>
     <script src="js/index.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/csv.js"></script>
 </body>
 </html>

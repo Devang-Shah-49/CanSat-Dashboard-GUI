@@ -637,6 +637,7 @@ hr {
     font-weight: bold;
     margin-left: 3.75rem;
     margin-top: 0px;
+    text-align: center;
 }
 
 /* gps and maps page styling */
@@ -676,7 +677,7 @@ hr {
     text-align: center;
 }
 
-#myInput {
+#myInput_c{
     background-position: 10px 10px;
     background-repeat: no-repeat;
     /* width: 100%; */
@@ -686,7 +687,16 @@ hr {
     margin-bottom: 12px;
     width: 250px;
 }
-
+#myInput_tp {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    /* width: 100%; */
+    font-size: 20px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    width: 250px;
+}
 .grid6{
     display: grid;
     grid-template-columns: repeat(3,518px);
@@ -715,22 +725,47 @@ border-bottom: 1px solid #ddd;
 background-color: #f1f1f1;
 }
 
-#random {
+#random_c {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#random td, #random th {
+#random_c td, #random_c th {
 border: 2px solid #ddd;
 padding: 8px;
 }
 
-#random tr:nth-child(even){background-color: #f2f2f2;}
+#random_c tr:nth-child(even){background-color: #f2f2f2;}
 
-#random tr:hover {background-color: #ddd;}
+#random_c tr:hover {background-color: #ddd;}
 
-#random th {
+#random_c th {
+padding-top: 14px;
+padding-bottom: 14px;
+text-align: center;
+background-color: #04AA6D;
+color: white;
+position: sticky;
+z-index: 100;
+top: 0;
+}
+#random_tp {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#random_tp td, #random_tp th {
+border: 2px solid #ddd;
+padding: 8px;
+}
+
+#random_tp tr:nth-child(even){background-color: #f2f2f2;}
+
+#random_tp tr:hover {background-color: #ddd;}
+
+#random_tp th {
 padding-top: 14px;
 padding-bottom: 14px;
 text-align: center;

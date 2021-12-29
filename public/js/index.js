@@ -651,4 +651,90 @@ responsive: {
 
 });
 
+//backend formatting
+var container_time = [], tp_time = [];
+var container_alt = [], tp_alt = [];
+var container_temp = [], tp_temp = [];
+var container_volt = [], tp_volt = [];
+var gyro_r = [], gyro_p = [], gyro_y = [];
+var accel_r = [], accel_p = [], accel_y = [];
+var mag_r = [], mag_p = [], mag_y = [];
 
+//for connection to backend via socket
+const socket = io.connect('http://localhost:3000/');
+
+socket.on('data', (arr) => {
+    document.getElementById('time-value').textContent = arr[1];
+    document.getElementById('pc_text').textContent = arr[2];
+    if(arr[3]=="C"){
+        document.getElementById('pt_text').textContent = 'Container';
+    } else if (arr[3]=='T'){
+        document.getElementById('pt_text').textContent = 'Tethered Payload';
+    }
+    if(arr[3] == "C"){
+        // container_time.push(data[1]);
+        container_alt.push(arr[6]);
+        container_temp.push(arr[7]);
+        container_volt.push(arr[8]); 
+        if(arr[4]=="F"){
+            document.getElementById('mode_text').textContent = 'Flight';
+        } else if (arr[4]=='S'){
+            document.getElementById('mode_text').textContent = 'Simulation';
+        }
+        if(arr[5]=="R"){
+            document.getElementById('released_text').textContent = 'Released';
+        } else if (arr[5]=='N'){
+            document.getElementById('released_text').textContent = 'Not Released';
+        }
+        document.getElementById('ss_text').textContent = arr[14];
+        // document.getElementById('mode_text').textContent = arr[4];
+        //Container CSV
+        let ce = document.createElement("tr");
+        arr.forEach(a => {
+            // console.log(e);
+            const td = document.createElement('td');
+            td.textContent = a;  
+            ce.appendChild(td);
+            document.querySelector('#c_tbody').appendChild(ce);
+        })
+    } 
+    // else { 
+//         // const tpData = arrData;
+//         // console.log(tpData);
+//         // const tpData = JSON.parse(JSON.stringify(arrData)); 
+//         // console.log(tpData[0]);
+
+//         //TP Graph
+//         tp_time.push(data[1]);
+//         tp_alt.push(data[4]);
+//         tp_temp.push(data[5]);
+//         tp_volt.push(data[6]);
+//         gyro_r.push(data[7]);
+//         gyro_p.push(data[8]);
+//         gyro_y.push(data[9]);
+//         accel_r.push(data[10]);
+//         accel_p.push(data[11]);
+//         accel_y.push(data[12]);
+//         mag_r.push(data[13]);
+//         mag_p.push(data[14]);
+//         mag_y.push(data[15]);
+
+//         //TP CSV
+//         let tr = document.createElement("tr");
+//         data.forEach((tp) => {
+//             const td = document.createElement('td');
+//             td.textContent = tp;
+//             // console.log(td); 
+//             tr.appendChild(td);
+//             document.querySelector('#pl').appendChild(tr); 
+//         }) 
+//     } 
+
+//     //Update
+//     alt.update();
+//     temp.update();
+//     volt.update();
+//     gyro.update();
+//     accel.update();
+//     mag.update();
+});
