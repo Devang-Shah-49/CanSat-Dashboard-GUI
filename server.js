@@ -52,11 +52,25 @@ function connect(s) {
         //     });
         // }
         const arrData = line.split(',');
-        s.emit('data', arrData);
+        
         const obj = {};
         const c_obj = {};
         const tp_obj = {};
-
+        if(arrData[3]=='C'){
+            fs.writeFile('public/csv/container.csv',line,{'flag':'a'},(err)=>{
+                if(err){
+                    throw err;
+                }
+            });
+        }
+        else if(arrData[3]=='T'){
+            fs.writeFile('public/csv/payload.csv',line,{'flag':'a'},(err)=>{
+                if(err){
+                    throw err;
+                }
+            });
+        }
+        s.emit('data', arrData);
         // if(arrData[3]==='C'){
         //     c_obj.id = arrData[0];
         //     c_obj.mtime = arrData[1];

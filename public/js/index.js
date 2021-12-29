@@ -37,9 +37,11 @@ btns.forEach((btn) => {
     })
 })
 
+
+
 //highchart js graphs
 //altitude chart
-Highcharts.chart('container6', {
+var alt = Highcharts.chart('container6', {
     chart: {
   backgroundColor: '#f6f6f6',
   polar: true,
@@ -103,11 +105,13 @@ plotOptions: {
 series: [{
     name: 'Container_Altitude',
     color:'#006600',
-    data: [43, 152, 127, 169, 97, 189, 137, 154]
+    // data: [43, 152, 127, 169, 97, 189, 137, 154]
+    data: container_alt
 }, {
     name: 'TP_Altitude',
     color:'#9900cc',
-    data: [24, 94, 59, 115, 52, 30, 72, 99]
+    // data: [24, 94, 59, 115, 52, 30, 72, 99]
+    data: tp_alt
 }, /*{
     name: 'Yaw',
     data: [11, 72, 86, 81, 20, 24, 32, 49]
@@ -666,13 +670,9 @@ const socket = io.connect('http://localhost:3000/');
 socket.on('data', (arr) => {
     document.getElementById('time-value').textContent = arr[1];
     document.getElementById('pc_text').textContent = arr[2];
-    if(arr[3]=="C"){
-        document.getElementById('pt_text').textContent = 'Container';
-    } else if (arr[3]=='T'){
-        document.getElementById('pt_text').textContent = 'Tethered Payload';
-    }
     if(arr[3] == "C"){
         // container_time.push(data[1]);
+        document.getElementById('pt_text').textContent = 'Container';
         container_alt.push(arr[6]);
         container_temp.push(arr[7]);
         container_volt.push(arr[8]); 
@@ -687,8 +687,8 @@ socket.on('data', (arr) => {
             document.getElementById('released_text').textContent = 'Not Released';
         }
         document.getElementById('ss_text').textContent = arr[14];
-        // document.getElementById('mode_text').textContent = arr[4];
-        //Container CSV
+
+        //Container Data Table
         let ce = document.createElement("tr");
         arr.forEach(a => {
             // console.log(e);
@@ -698,40 +698,43 @@ socket.on('data', (arr) => {
             document.querySelector('#c_tbody').appendChild(ce);
         })
     } 
-    // else { 
-//         // const tpData = arrData;
-//         // console.log(tpData);
-//         // const tpData = JSON.parse(JSON.stringify(arrData)); 
-//         // console.log(tpData[0]);
+    else if(arr[3]=="T"){ 
+        // const tpData = arrData;
+        // console.log(tpData);
+        // const tpData = JSON.parse(JSON.stringify(arrData)); 
+        // console.log(tpData[0]);
+        document.getElementById('pt_text').textContent = 'Tethered Payload';
+        
+        document.getElementById('tp_ss_text').textContent = arr[17];
+        document.getElementById('pe_text').textContent = arr[16];
+        //TP Graph
+        // tp_time.push(arr[1]);
+        tp_alt.push(arr[4]);
+        tp_temp.push(arr[5]);
+        tp_volt.push(arr[6]);
+        gyro_r.push(arr[7]);
+        gyro_p.push(arr[8]);
+        gyro_y.push(arr[9]);
+        accel_r.push(arr[10]);
+        accel_p.push(arr[11]);
+        accel_y.push(arr[12]);
+        mag_r.push(arr[13]);
+        mag_p.push(arr[14]);
+        mag_y.push(arr[15]);
 
-//         //TP Graph
-//         tp_time.push(data[1]);
-//         tp_alt.push(data[4]);
-//         tp_temp.push(data[5]);
-//         tp_volt.push(data[6]);
-//         gyro_r.push(data[7]);
-//         gyro_p.push(data[8]);
-//         gyro_y.push(data[9]);
-//         accel_r.push(data[10]);
-//         accel_p.push(data[11]);
-//         accel_y.push(data[12]);
-//         mag_r.push(data[13]);
-//         mag_p.push(data[14]);
-//         mag_y.push(data[15]);
-
-//         //TP CSV
-//         let tr = document.createElement("tr");
-//         data.forEach((tp) => {
-//             const td = document.createElement('td');
-//             td.textContent = tp;
-//             // console.log(td); 
-//             tr.appendChild(td);
-//             document.querySelector('#pl').appendChild(tr); 
-//         }) 
-//     } 
-
+        //TP CSV
+        let tr = document.createElement("tr");
+        arr.forEach((tp) => {
+            const td = document.createElement('td');
+            td.textContent = tp;
+            // console.log(td); 
+            tr.appendChild(td);
+            document.querySelector('#tp_tbody').appendChild(tr); 
+        }) 
+    } 
 //     //Update
-//     alt.update();
+    alt.series[0].update(container_alt);
+    alt.series[1].update(tp_alt);
 //     temp.update();
 //     volt.update();
 //     gyro.update();
