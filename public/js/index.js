@@ -12,8 +12,8 @@ navBorder.addEventListener("click", () => {
 });
 
 //resolving refreshing issue by creating buttons to hide and show elements
-const btns = [document.querySelector('#display-dashboard'), document.querySelector('#display-map'), document.querySelector('#display-c_csv')];
-const newDisplay = [document.querySelector('#dashboard-container'), document.querySelector('#map-container'), document.querySelector('#c_csv-container')]
+const btns = [document.querySelector('#display-dashboard'), document.querySelector('#display-map'), document.querySelector('#display-c_csv'), document.querySelector('#display-tp_csv')];
+const newDisplay = [document.querySelector('#dashboard-container'), document.querySelector('#map-container'), document.querySelector('#c_csv-container'), document.querySelector('#tp_csv-container')]
 
 btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -25,6 +25,9 @@ btns.forEach((btn) => {
                 open.style = "display: block !important;"
             }
             else if (open.className == e.target.className && open.className == "c_csv_c"){
+                open.style = "display: block !important;"
+            }
+            else if (open.className == e.target.className && open.className == "tp_csv_c"){
                 open.style = "display: block !important;"
             }
             else{

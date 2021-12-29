@@ -39,16 +39,18 @@
                 <span class="nav__label">DASHBOARD</span>
                 <span class="nav__label1" style="display: none;margin-left: -96% !important;font-size: 0.7rem !important;font-weight: bold !important;">DASHBOARD</span>
             </a> -->
-            <button id="display-dashboard" class="dashboard_c" title="Dashboard">
+            <!-- <button id="display-dashboard" class="dashboard_c" title="Dashboard"> -->
+            <a id="display-dashboard" class="dashboard_c" title="Dashboard">
                     <div class="nav__icon-container">
-                        <i class="fas fa-tachometer-alt fa-2x" aria-hidden="true">
+                        <i class="fas fa-tachometer-alt fa-2x" aria-hidden="true" style="font-size:1.7rem !important;">
                             <!-- > -->
                         </i>
                     </div>
-                    >>
+                    >
                 <span class="nav__label">DASHBOARD</span>
-                <span class="nav__label1" style="display: none;margin-left: -95% !important;font-size: 0.7rem !important;font-weight: bold !important;">DASHBOARD</span>
-            </button>
+                <span class="nav__label1" style="display: none;margin-left: -91% !important;font-size: 0.7rem !important;font-weight: bold !important;">DASHBOARD</span>
+            <!-- </button> -->
+            </a>
             <hr class="sidebar-divider my-0">
             <!-- <a href="map.html" class="nav_link" title="GPS MAPPING">
                 <div class="nav__icon-container"  >
@@ -59,11 +61,11 @@
             </a> -->
             <button id="display-map" class="map_c" title="GPS MAP">
                 <div class="nav__icon-container">
-                    <i class="fas fa-map-marked-alt fa-2x" aria-hidden="true">
+                    <i class="fas fa-map-marked-alt fa-2x" aria-hidden="true" style="font-size:1.6rem !important">
                         <!-- > -->
                     </i>
                 </div>
-                >>
+                >
             <span class="nav__label">MAP</span>
             <span class="nav__label1" style="display: none;">MAP</span>
         </button>
@@ -78,13 +80,13 @@
             </a> -->
             <button id="display-c_graphs" class="c_graphs_c" title="CONTAINER GRAPHS">
                 <div class="nav__icon-container">
-                    <i class="fas fa-chart-area fa-2x" aria-hidden="true">
+                    <i class="fas fa-chart-area fa-2x" aria-hidden="true" style="font-size:1.7rem !important">
                         <!-- > -->
                     </i>
                 </div>
-                >>
+                >
                 <span class="nav__label">C_GRAPHS</span>
-                <span class="nav__label1" style="display: none;margin-left: -94% !important;">C_GRAPHS</span>
+                <span class="nav__label1" style="display: none;margin-left: -91% !important;">C_GRAPHS</span>
             </button>
             <!-- <hr class="sidebar-divider my-0"> -->
             <!-- <a href="csv.html" class="nav_link" title="CONTAINER CSV">
@@ -96,11 +98,11 @@
             </a> -->
             <button id="display-c_csv" class="c_csv_c" title="CONTAINER CSV">
                 <div class="nav__icon-container">
-                    <i class="fas fa-table fa-2x" aria-hidden="true">
+                    <i class="fas fa-table fa-2x" aria-hidden="true" style="font-size:1.6rem !important">
                         <!-- > -->
                     </i>
                 </div>
-                >>
+                >
                 <span class="nav__label">C_CSV</span>
                 <span class="nav__label1" style="display: none;margin-left: -75% !important;">C_CSV</span>
             </button>
@@ -122,11 +124,11 @@
             </a> -->
             <button id="display-tp_graphs" class="tp_graphs_c" title="PAYLOAD GRAPHS">
                 <div class="nav__icon-container">
-                    <i class="fas fa-chart-line fa-2x" aria-hidden="true">
+                    <i class="fas fa-chart-line fa-2x" aria-hidden="true" style="font-size:1.8rem !important">
                         <!-- > -->
                     </i>
                 </div>
-                >>
+                >
                 <span class="nav__label">TP GRAPHS</span>
                 <span class="nav__label1" style="display: none;margin-left: -91% !important;font-size: 0.7rem !important;">TP GRAPHS</span>
             </button>
@@ -140,11 +142,11 @@
             </a> -->
             <button id="display-tp_csv" class="tp_csv_c" title="PAYLOAD CSV">
                 <div class="nav__icon-container">
-                    <i class="fas fa-file-csv fa-2x" aria-hidden="true">
+                    <i class="fas fa-file-csv fa-2x" aria-hidden="true" style="font-size:1.6rem !important">
                         <!-- > -->
                     </i>
                 </div>
-                >>
+                >
                 <span class="nav__label">TP CSV</span>
                 <span class="nav__label1" style="display: none;margin-left: -83% !important;">TP CSV</span>
             </button>
@@ -165,7 +167,7 @@
                 <div class="header">
                     <!-- Topbar -->
                     <div class="grid-x">
-                        <img src="images\Indian flag.png" width="140px" height="120px">
+                        <img src="images\flag of india.png" width="160px" height="110px">
                         <div class="grdy">
                             <div class="cad">
                                 <!-- <div class="card-header">TEAM ID</div> -->
@@ -185,7 +187,7 @@
                             </div>
                         </div>
                         <!-- <img src="images/arya transparent logo.jpeg" width="140" height="120" class="rotating" > -->
-                        <img src="images/Black Logo.jpeg" width="140" height="120" class="rotating" >
+                        <img src="images/Black Logo.jpeg" width="140" height="120">
                         <!--<div class="card">
                             <div class="card-header">MISSION TIME</div>
                             <div class="card-main">
@@ -231,7 +233,7 @@
             </div>
 
             <!-- dashboard html -->
-            <div id="dashboard-container" class="dashboard_c" style='display: none;'>
+            <div id="dashboard-container" class="dashboard_c">
                 <div class="grid_x">
                     <div class="card">
                         <div class="card-header">PACKET COUNT</div>
@@ -379,11 +381,11 @@
             </div>
         </div>
 
-        <!-- csv html -->
+        <!--Container csv html -->
         <div id="c_csv-container" class="c_csv_c" style="display: none">
             <div class="container  mb-5 mt-5" style="margin-top:40px; margin-bottom:40px; margin-left:40px; margin-right:40px;">
                 <div class="grid6">
-                    <a href="images/test1.csv" download="9999_DJS Arya-India.csv" class="download-btn">
+                    <a href="images/container.csv" download="1004_DJS Arya-India.csv" class="download-btn">
                         Download .CSV 
                         <i class="fa fa-download"></i>
                     </a>
@@ -424,7 +426,52 @@
             </div>
         </div>
 
-        
+        <!--Tethered Payload csv html -->
+        <div id="tp_csv-container" class="tp_csv_c" style="display: none">
+            <div class="container  mb-5 mt-5" style="margin-top:40px; margin-bottom:40px; margin-left:40px; margin-right:40px;">
+                <div class="grid6">
+                    <a href="images/payload.csv" download="6004_DJS Arya-India.csv" class="download-btn">
+                        Download .CSV 
+                        <i class="fa fa-download"></i>
+                    </a>
+                    <p style="font-weight: bold; font-size:20px;">PAYLOAD TELEMETRY DATA</p>
+                    <input type="text" id="myInput" placeholder="Search...">
+                        <!-- <i class="fa fa-search"></i> -->
+                    </input>
+                </div>
+                
+                <table class="table table-striped table-bordered mydatatable" id="random">
+                    <thead class='stick'>
+                        <tr>
+                            <th>Team ID</th>
+                            <th>Mission Time</th>
+                            <th>Packet Count</th>
+                            <th>Packet Type</th>
+                            <th>TP Altitude</th>
+                            <th>TP Temp</th>
+                            <th>TP Voltage</th>
+                            <th>GYRO Roll</th>
+                            <th>GYRO Pitch</th>
+                            <th>GYRO Yaw</th>
+                            <th>ACCEL Roll</th>
+                            <th>ACCEL Pitch</th>
+                            <th>ACCEL Yaw</th>
+                            <th>MAG Roll</th>
+                            <th>MAG Pitch</th>
+                            <th>MAG Yaw</th>
+                            <th>Pointing Error</th>
+                            <th>TP Software State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
 
         </main>
     </div>

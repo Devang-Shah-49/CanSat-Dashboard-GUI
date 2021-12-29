@@ -102,8 +102,9 @@ html, body {
     align-items: center;
     /* color: rgba(0,0,0,0.75); */
     font-weight: bold;
-    /* font-size: 2rem; */
+    font-size: 1.5rem;
     text-decoration: none;
+    cursor: pointer;
     /* padding-top: 1rem; */
     /* margin-right: 10rem; */
     /* padding-bottom: 1rem; */
@@ -111,7 +112,11 @@ html, body {
     /* height:20%; */
     background-color:#74B72E;
     border-width: 0;
+    border-radius: 50%!important;
 }
+/* .rounded-circle {
+    border-radius: 50%!important;
+} */
 
 .nav__icon-container {
     width: var(--nav-icon-width);
@@ -551,10 +556,10 @@ hr {
     padding-left: 115px; */
     display:flex;
     flex-direction: row;
-    gap: 8vw;
-    padding-top: 1.5rem;
+    gap: 9vw;
+    padding-top: 0rem;
     /* padding-left: 5rem; */
-    padding-left: 4vw;
+    padding-left: 3vw;
     margin-right:1vw;
     margin-left:0;
     padding-right: 1vw;
