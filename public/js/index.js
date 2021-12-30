@@ -317,7 +317,7 @@ const gyro = new Chart(GYROSCOPE, {
 }
 });
 
-//altitude chart
+//temperature chart
 const TEMPERATURE=document.getElementById('temperature').getContext('2d');
 const temp = new Chart(TEMPERATURE, {
     type: "line",
@@ -416,7 +416,7 @@ const temp = new Chart(TEMPERATURE, {
 });
 
 
-//gyroscope
+//magnetometer chart
 const MAGNETOMETER = document.getElementById('magnetometer').getContext('2d');
 const mag = new Chart(MAGNETOMETER, {
     type: "line",
@@ -498,6 +498,194 @@ const mag = new Chart(MAGNETOMETER, {
             scaleLabel: {
                 display: true,
                 labelString: 'Magnetometer (microTesla)'
+            },
+        }],
+    }
+
+}
+});
+
+//voltage chart
+const VOLTAGE=document.getElementById('voltage').getContext('2d');
+const volt = new Chart(VOLTAGE, {
+    type: "line",
+    data: {
+        labels: container_time,
+        datasets: [{
+        fill: false,     
+        label: ' CONTAINER VOLTAGE             ',
+        lineTension: 0,
+        // backgroundColor: "rgb(62, 149, 205, 1)",    
+        // borderColor: "rgb(62, 149, 205)",
+        borderColor: '#ff6666',
+        pointBackgroundColor:"#ff6666",
+        // radius: 0,
+        data: container_volt,
+        // borderWidth:2,
+        // pointRadius:1,
+        },
+    {
+        fill: false,
+        label:' TP VOLTAGE',
+        lineTension: 0,
+        // backgroundColor: "rgb(228, 68, 150, 0.8)",    
+        // borderColor: "rgb(255, 96, 178, 0.8)",
+        borderColor:'#006600',
+        // pointBackgroundColor:"rgb(255, 96, 178, 0.8)", 
+        pointBackgroundColor:"#006600", 
+        // radius: 0,
+        data: tp_volt,
+        // borderWidth:2,
+        // pointRadius:1,
+    }]
+    },
+    
+    // options: {
+    //     legend: {display: false},
+    //     scales: {
+    //     yAxes: [{ticks: {min: 0, max:20}}],  
+    //     },
+    // },
+    options : {
+        plugins: {
+            legend: {
+                display: true,
+                // position: 'right',
+                // align:'',
+                // floating: true,
+                // position: 'left',
+                // verticalAlign: 'left',
+                // align:'center',
+                labels: {
+                    // color: 'rgb(255, 99, 132)'
+                    // usePointStyle:true,
+                    font: {
+                        size: 26,
+                        family: "'Verdana', sans-serif",
+                    }
+                }
+            }
+        },
+        // legend: {display: true},
+        responsive: true,
+        maintainAspectRatio: false,
+    // title: {
+    //     display: true,
+    //     text: 'Altitude',
+    //     position: 'left',
+    //     // verticalAlign: 'top',
+    //     // align:'left',
+    //     // x: 5,
+    //     // y:20
+    //     // style: {font-size: 1, font-weight: bold}
+    // },
+    position:'left',
+    align:'start',
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Time (s)'
+            },
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Voltage (V)'
+            },
+        }],
+    }
+    }
+});
+
+
+//accelerometer
+const ACCELEROMETER = document.getElementById('accelerometer').getContext('2d');
+const accel = new Chart(ACCELEROMETER, {
+    type: "line",
+    data: { 
+        labels: container_time,
+        datasets: [{
+        fill: false,     
+        label:' ACCEL Roll  ',
+        lineTension:0,
+        // backgroundColor: "rgb(87, 192, 236, 1)",    
+        // borderColor: "rgb(62, 149, 205)",
+        // pointBackgroundColor: "rgb(62, 149, 205)",
+        borderColor: "#006600",
+        pointBackgroundColor: "#006600",
+        data: accel_r, 
+        // borderWidth:2,
+        // pointRadius:2,
+        },
+        {
+        fill: false,
+        label:' ACCEL Pitch  ',
+        lineTension:0,
+        // backgroundColor: "rgba(87, 192, 236, 1)",    
+        // borderColor: "rgb(255, 96, 178, 0.8)",
+        // pointBackgroundColor:"rgb(255, 96, 178, 0.8)",
+        borderColor: "#ff6666",
+        pointBackgroundColor: "#ff6666",
+        data: accel_p, 
+        // borderWidth:2,
+        // pointRadius:2,
+    },
+    {
+        fill: false,
+        label:' ACCEL Yaw  ',
+        lineTension:0,
+        // backgroundColor: "rgba(87, 192, 236, 1)",    
+        // borderColor: "rgb(48, 205, 205, 0.87)",
+        // pointBackgroundColor:"rgb(48, 205, 205, 0.87)",
+        borderColor: "#9900cc",
+        pointBackgroundColor: "#9900cc",
+        data: accel_y,
+        // borderWidth:2,
+        // pointRadius:2,
+    },
+    ]
+    },
+    options:{
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    font: {
+                        size: 26,
+                        family: "'Verdana', sans-serif",
+                    }
+                }
+            }
+        },
+    //     title: {
+    //         display: true,
+    //         text: 'Gyro'
+    
+    // },
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Time (s)'
+            },
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Accelerometer (m/s^2)'
             },
         }],
     }
