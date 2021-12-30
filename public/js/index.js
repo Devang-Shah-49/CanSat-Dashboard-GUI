@@ -121,7 +121,7 @@ socket.on('data', (arr) => {
     alt.update();
     // temp.update();
     // volt.update();
-    // gyro.update();
+    gyro.update();
     // accel.update();
     // mag.update();
 });
@@ -138,7 +138,7 @@ const alt = new Chart(altitude, {
         labels: container_time,
         datasets: [{
         fill: false,     
-        label: ' CONTAINER_ALTITUDE             ',
+        label: ' CONTAINER ALTITUDE             ',
         lineTension: 0,
         // backgroundColor: "rgb(62, 149, 205, 1)",    
         // borderColor: "rgb(62, 149, 205)",
@@ -226,4 +226,281 @@ const alt = new Chart(altitude, {
         }],
     }
     }
+});
+
+//gyroscope
+const GYROSCOPE = document.getElementById('gyroscope').getContext('2d');
+const gyro = new Chart(GYROSCOPE, {
+    type: "line",
+    data: { 
+        labels: container_time,
+        datasets: [{
+        fill: false,     
+        label:' GYRO Roll  ',
+        lineTension:0,
+        // backgroundColor: "rgb(87, 192, 236, 1)",    
+        // borderColor: "rgb(62, 149, 205)",
+        // pointBackgroundColor: "rgb(62, 149, 205)",
+        borderColor: "#006600",
+        pointBackgroundColor: "#006600",
+        data: gyro_r, 
+        // borderWidth:2,
+        // pointRadius:2,
+        },
+        {
+        fill: false,
+        label:' GYRO Pitch  ',
+        lineTension:0,
+        // backgroundColor: "rgba(87, 192, 236, 1)",    
+        // borderColor: "rgb(255, 96, 178, 0.8)",
+        // pointBackgroundColor:"rgb(255, 96, 178, 0.8)",
+        borderColor: "#ff6666",
+        pointBackgroundColor: "#ff6666",
+        data: gyro_p, 
+        // borderWidth:2,
+        // pointRadius:2,
+    },
+    {
+        fill: false,
+        label:' GYRO Yaw  ',
+        lineTension:0,
+        // backgroundColor: "rgba(87, 192, 236, 1)",    
+        // borderColor: "rgb(48, 205, 205, 0.87)",
+        // pointBackgroundColor:"rgb(48, 205, 205, 0.87)",
+        borderColor: "#9900cc",
+        pointBackgroundColor: "#9900cc",
+        data: gyro_y,
+        // borderWidth:2,
+        // pointRadius:2,
+    },
+    ]
+    },
+    options:{
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    font: {
+                        size: 26,
+                        family: "'Verdana', sans-serif",
+                    }
+                }
+            }
+        },
+    //     title: {
+    //         display: true,
+    //         text: 'Gyro'
+    
+    // },
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Time (s)'
+            },
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Gyroscope (rad/s)'
+            },
+        }],
+    }
+
+}
+});
+
+//altitude chart
+const TEMPERATURE=document.getElementById('temperature').getContext('2d');
+const temp = new Chart(TEMPERATURE, {
+    type: "line",
+    data: {
+        labels: container_time,
+        datasets: [{
+        fill: false,     
+        label: ' CONTAINER TEMPERATURE             ',
+        lineTension: 0,
+        // backgroundColor: "rgb(62, 149, 205, 1)",    
+        // borderColor: "rgb(62, 149, 205)",
+        borderColor: '#ff6666',
+        pointBackgroundColor:"#ff6666",
+        // radius: 0,
+        data: container_temp,
+        // borderWidth:2,
+        // pointRadius:1,
+        },
+    {
+        fill: false,
+        label:' TP TEMPERATURE',
+        lineTension: 0,
+        // backgroundColor: "rgb(228, 68, 150, 0.8)",    
+        // borderColor: "rgb(255, 96, 178, 0.8)",
+        borderColor:'#006600',
+        // pointBackgroundColor:"rgb(255, 96, 178, 0.8)", 
+        pointBackgroundColor:"#006600", 
+        // radius: 0,
+        data: tp_temp,
+        // borderWidth:2,
+        // pointRadius:1,
+    }]
+    },
+    
+    // options: {
+    //     legend: {display: false},
+    //     scales: {
+    //     yAxes: [{ticks: {min: 0, max:20}}],  
+    //     },
+    // },
+    options : {
+        plugins: {
+            legend: {
+                display: true,
+                // position: 'right',
+                // align:'',
+                // floating: true,
+                // position: 'left',
+                // verticalAlign: 'left',
+                // align:'center',
+                labels: {
+                    // color: 'rgb(255, 99, 132)'
+                    // usePointStyle:true,
+                    font: {
+                        size: 26,
+                        family: "'Verdana', sans-serif",
+                    }
+                }
+            }
+        },
+        // legend: {display: true},
+        responsive: true,
+        maintainAspectRatio: false,
+    // title: {
+    //     display: true,
+    //     text: 'Altitude',
+    //     position: 'left',
+    //     // verticalAlign: 'top',
+    //     // align:'left',
+    //     // x: 5,
+    //     // y:20
+    //     // style: {font-size: 1, font-weight: bold}
+    // },
+    position:'left',
+    align:'start',
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Time (s)'
+            },
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Temperature (`C)'
+            },
+        }],
+    }
+    }
+});
+
+
+//gyroscope
+const MAGNETOMETER = document.getElementById('magnetometer').getContext('2d');
+const mag = new Chart(MAGNETOMETER, {
+    type: "line",
+    data: { 
+        labels: container_time,
+        datasets: [{
+        fill: false,     
+        label:' MAG Roll  ',
+        lineTension:0,
+        // backgroundColor: "rgb(87, 192, 236, 1)",    
+        // borderColor: "rgb(62, 149, 205)",
+        // pointBackgroundColor: "rgb(62, 149, 205)",
+        borderColor: "#006600",
+        pointBackgroundColor: "#006600",
+        data: mag_r, 
+        // borderWidth:2,
+        // pointRadius:2,
+        },
+        {
+        fill: false,
+        label:' MAG Pitch  ',
+        lineTension:0,
+        // backgroundColor: "rgba(87, 192, 236, 1)",    
+        // borderColor: "rgb(255, 96, 178, 0.8)",
+        // pointBackgroundColor:"rgb(255, 96, 178, 0.8)",
+        borderColor: "#ff6666",
+        pointBackgroundColor: "#ff6666",
+        data: mag_p, 
+        // borderWidth:2,
+        // pointRadius:2,
+    },
+    {
+        fill: false,
+        label:' MAG Yaw  ',
+        lineTension:0,
+        // backgroundColor: "rgba(87, 192, 236, 1)",    
+        // borderColor: "rgb(48, 205, 205, 0.87)",
+        // pointBackgroundColor:"rgb(48, 205, 205, 0.87)",
+        borderColor: "#9900cc",
+        pointBackgroundColor: "#9900cc",
+        data: mag_y,
+        // borderWidth:2,
+        // pointRadius:2,
+    },
+    ]
+    },
+    options:{
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    font: {
+                        size: 26,
+                        family: "'Verdana', sans-serif",
+                    }
+                }
+            }
+        },
+    //     title: {
+    //         display: true,
+    //         text: 'Gyro'
+    
+    // },
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Time (s)'
+            },
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Magnetometer (microTesla)'
+            },
+        }],
+    }
+
+}
 });
