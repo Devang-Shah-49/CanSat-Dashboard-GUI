@@ -119,11 +119,11 @@ socket.on('data', (arr) => {
     // alt.series[0].update(container_alt);
     // alt.series[1].update(tp_alt);
     alt.update();
-    // temp.update();
+    temp.update();
     // volt.update();
     gyro.update();
     // accel.update();
-    // mag.update();
+    mag.update();
 });
 
 
