@@ -115,14 +115,12 @@ socket.on('data', (arr) => {
             document.querySelector('#tp_tbody').appendChild(tr); 
         }) 
     } 
-//     //Update
-    // alt.series[0].update(container_alt);
-    // alt.series[1].update(tp_alt);
+    //Update
     alt.update();
     temp.update();
-    // volt.update();
+    volt.update();
     gyro.update();
-    // accel.update();
+    accel.update();
     mag.update();
 });
 
@@ -517,8 +515,8 @@ const volt = new Chart(VOLTAGE, {
         lineTension: 0,
         // backgroundColor: "rgb(62, 149, 205, 1)",    
         // borderColor: "rgb(62, 149, 205)",
-        borderColor: '#ff6666',
-        pointBackgroundColor:"#ff6666",
+        borderColor: '#9900cc',
+        pointBackgroundColor:"#9900cc",
         // radius: 0,
         data: container_volt,
         // borderWidth:2,
@@ -530,9 +528,9 @@ const volt = new Chart(VOLTAGE, {
         lineTension: 0,
         // backgroundColor: "rgb(228, 68, 150, 0.8)",    
         // borderColor: "rgb(255, 96, 178, 0.8)",
-        borderColor:'#006600',
+        borderColor:'#ff6666',
         // pointBackgroundColor:"rgb(255, 96, 178, 0.8)", 
-        pointBackgroundColor:"#006600", 
+        pointBackgroundColor:"#ff6666", 
         // radius: 0,
         data: tp_volt,
         // borderWidth:2,
