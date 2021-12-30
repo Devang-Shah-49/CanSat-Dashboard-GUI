@@ -565,13 +565,20 @@ hr {
     padding-right: 1vw;
 }
 .graph-card{
+    background-color: #f6f6f6;
     height: 21.5rem;
     width: 38rem;
-    padding: 0;
+    padding-top: 0.3rem;
+    padding-bottom: 1.3rem;
+    padding-left: 0.3rem;
+    padding-right: 1rem;
     margin:0;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
     transition: 0.5s;
     border-radius: 10px; /* 10px rounded corners */
+    /* text-align: center; */
+    font-family: Verdana, sans-serif;
+    font-weight: 500;
   }
 /* .graph-card3{
     height: 250px;
@@ -644,8 +651,8 @@ hr {
 .map-y {
     display: grid;
     grid-template-columns: repeat(2,500px);
-    margin-top:40px;
-    grid-gap:50px;
+    margin-top:3vw;
+    grid-gap:3vw;
     justify-content: center;
 }
 .gridmap_x{
@@ -657,7 +664,8 @@ hr {
     /* margin-left: 50px; */
 }
 #gpsmap{
-    height:550px;
+    height:515px;
+    /* height: inherit; */
     border-radius: 20px;
 }
 

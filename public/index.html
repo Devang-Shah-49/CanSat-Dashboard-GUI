@@ -21,6 +21,13 @@
 
     <!-- socket -->
     <script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
+
+
+    <!-- chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 </head>
 
 <body>
@@ -306,29 +313,47 @@
 
                 <div class="grid2">
                     <figure class="highcharts-figure">
-                        <div class="graph-card" id="container6"></div> <!---altitude-->
+                        <div class="graph-card" id="container6">
+                            ALTITUDE
+                            <canvas id="altitude" ></canvas> <!---altitude-->
+                        </div> 
                     </figure>
                     <figure class="highcharts-figure">
-                        <div class="graph-card" id="container5"></div> <!---gyroscope-->
+                        <div class="graph-card" id="container5">
+                            GYROSCOPE
+                            <canvas id="gyroscope"></canvas>
+                        </div> <!---gyroscope-->
                     </figure>
                 </div>
 
                 <div class="grid2">
                     <figure class="highcharts-figure">
-                        <div class="graph-card" id="container4"></div> <!---temperature-->
+                        <div class="graph-card" id="container4">
+                            TEMPERATURE
+                            <canvas id="temperature" ></canvas>
+                        </div> <!---temperature-->
                     </figure>
                     <figure class="highcharts-figure">
-                        <div class="graph-card" id="container3"></div> <!---accelerometer-->
+                        <div class="graph-card" id="container3">
+                            ACCELEROMETER
+                            <canvas id="accelerometer"></canvas>
+                        </div> <!---accelerometer-->
                     </figure>
                     
                 </div>
 
                 <div class="grid2">
                     <figure class="highcharts-figure">
-                        <div class="graph-card" id="container2"></div> <!---Voltage-->
+                        <div class="graph-card" id="container2">
+                            VOLTAGE
+                            <canvas id="voltage"></canvas>
+                        </div> <!---Voltage-->
                     </figure>
                     <figure class="highcharts-figure">
-                        <div class="graph-card" id="container1"></div> <!---magnetometer-->
+                        <div class="graph-card" id="container1">
+                            MAGNETOMETER
+                            <canvas id="magnetometer" ></canvas>
+                        </div> <!---magnetometer-->
                     </figure>
                 </div>
                 <br>
@@ -344,7 +369,7 @@
                             <div class="card-header">GPS TIME</div>
                             <div class="card-main">
                                 <!-- <i class="material-icons">hot_tub</i> -->
-                                <div class="main-description">1:12:45</div>
+                                <div id="gpstime_text" class="main-description">1:12:45</div>
                             </div>
                         </div>
                         <div class="card2">
@@ -358,7 +383,7 @@
                             <div class="card-header">GPS ALTITUDE</div>
                             <div class="card-main">
                             <!-- <i class="material-icons">hot_tub</i> -->
-                                <div class="main-description">720 m</div>
+                                <div id="gpsalt_text" class="main-description">720 m</div>
                             </div>
                         </div>
                         <div class="card2">
@@ -372,7 +397,7 @@
                             <div class="card-header" >SATELLITES</div>
                             <div class="card-main">
                             <!-- <i class="material-icons">hot_tub</i> -->
-                            <div class="main-description">7</div>
+                            <div id="gpssats_text" class="main-description">7</div>
                             </div>
                         </div>
                     </div>
@@ -382,6 +407,8 @@
                 </div> -->
             </div>
         </div>
+        <br>
+        <br>
 
         <!--Container csv html -->
         <div id="c_csv-container" class="c_csv_c" style="display: none">

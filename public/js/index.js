@@ -38,623 +38,6 @@ btns.forEach((btn) => {
 })
 
 
-
-//highchart js graphs
-//altitude chart
-var alt = Highcharts.chart('container6', {
-    chart: {
-  backgroundColor: '#f6f6f6',
-  polar: true,
-  type: 'spline',
-},
-title: {
-    text: 'ALTITUDE',
-    verticalAlign: 'top',
-    align:'left',
-    x: 5,
-    y:20
-},
-
-/* subtitle: {
-    text: 'Source: thesolarfoundation.com'
-}, */
-
-yAxis: {
-    title: {
-        text: 'Altitude (m)'
-    }
-},
-
-xAxis: {
-title: {
-        text: 'Time (s)'
-    },
-    /* accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
-    } */
-},
-
-legend: {
-    /* layout: 'horizontal',
-    align: 'center-top',
-    verticalAlign: 'middle' */
-    enabled: true,
-    floating: true,
-    verticalAlign: 'top',
-    align:'center',
-    y:5, 
-    x:35
-},
-
-plotOptions: {
-    series: {
-        // label: {
-        //     connectorAllowed: false
-        // },
-        // pointStart: 2010
-        shadow: {
-            color:'#333', 
-            // offsetX:, 
-            // offsetY, 
-            opacity: 0.5,
-            width: 2
-        }
-    }
-}, 
-
-series: [{
-    name: 'Container_Altitude',
-    color:'#006600',
-    // data: [43, 152, 127, 169, 97, 189, 137, 154]
-    data: container_alt
-}, {
-    name: 'TP_Altitude',
-    color:'#9900cc',
-    // data: [24, 94, 59, 115, 52, 30, 72, 99]
-    data: tp_alt
-}, /*{
-    name: 'Yaw',
-    data: [11, 72, 86, 81, 20, 24, 32, 49]
-}*//* , {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-}, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-} */
-],
-
-responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 500
-        },
-        chartOptions: {
-            legend: {
-                y:0,
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'top'
-            }
-        }
-    }]
-}
-
-});
-
-
-// gyroscope chart
-Highcharts.chart('container5', {
-    chart: {
-  backgroundColor: '#f6f6f6',
-  polar: true,
-  type: 'line',
-},
-title: {
-    text: 'GYROSCOPE',
-    verticalAlign: 'top',
-    align:'left',
-    x: 15,
-    y:20
-},
-
-/* subtitle: {
-    text: 'Source: thesolarfoundation.com'
-}, */
-
-yAxis: {
-    title: {
-        text: 'Gyroscope (rad/s)'
-    }
-},
-
-xAxis: {
-title: {
-        text: 'Time (s)'
-    },
-    /* accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
-    } */
-},
-
-legend: {
-    /* layout: 'horizontal',
-    align: 'center-top',
-    verticalAlign: 'middle' */
-    enabled: true,
-    floating: true,
-    verticalAlign: 'top',
-    align:'center',
-    /* y:10, */
-    x:60
-},
-
-plotOptions: {
-    series: {
-        // label: {
-        //     connectorAllowed: false
-        // },
-        // pointStart: 2010
-        shadow: {
-            color:'#333', 
-            // offsetX:, 
-            // offsetY, 
-            opacity: 0.5,
-            width: 2
-        }
-    }
-}, 
-
-series: [{
-    name: 'Roll',
-    // color: '#0066FF',
-    // color:'#1f3f49',
-    color:'#006600',
-    data: [43, 152, 157, 169, 97, 119, 137, 154]
-}, {
-    name: 'Pitch',
-    // color: 'red',
-    color: '#ff6666',
-    data: [24, 104, 129, 99, 52, 60, 72, 99]
-}, {
-    name: 'Yaw',
-    // color: '#4a006a',
-    // color:'#8500be',
-    color:'#9900cc',
-    data: [11, 72, 86, 51, 20, 24, 32, 49]
-}/* , {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-}, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-} */
-],
-
-responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 1500
-        },
-        chartOptions: {
-            legend: {
-                    y:0,
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'top'
-            }
-        }
-    }]
-}
-
-});
-
-//magnetometer chart
-Highcharts.chart('container1', {
-    chart: {
-  backgroundColor: '#f6f6f6',
-  polar: true,
-  type: 'spline',
-},
-title: {
-    text: 'MAGNETOMETER',
-    verticalAlign: 'top',
-    align:'left',
-    x: 15,
-    y:20
-},
-
-/* subtitle: {
-    text: 'Source: thesolarfoundation.com'
-}, */
-
-yAxis: {
-    title: {
-        text: 'Magnetometer (microTesla)'
-    }
-},
-
-xAxis: {
-title: {
-        text: 'Time (s)'
-    },
-    /* accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
-    } */
-},
-
-legend: {
-    /* layout: 'horizontal',
-    align: 'center-top',
-    verticalAlign: 'middle' */
-    enabled: true,
-    floating: true,
-    verticalAlign: 'top',
-    align:'center',
-    /* y:10, */
-    x:60
-},
-plotOptions: {
-    series: {
-        // label: {
-        //     connectorAllowed: false
-        // },
-        // pointStart: 2010
-        shadow: {
-            color:'#333', 
-            // offsetX:, 
-            // offsetY, 
-            opacity: 0.5,
-            width: 2
-        }
-    }
-}, 
-
-series: [{
-    name: 'Roll',
-    // color:'#8500be',
-    color:'#9900cc',
-    data: [43, 152, 157, 169, 97, 119, 137, 154]
-}, {
-    name: 'Pitch',
-    // color:'#1f3f49',
-    color:'#006600',
-    data: [24, 104, 129, 99, 52, 60, 72, 99]
-}, {
-    name: 'Yaw',
-    // color:'red',
-    color: '#ff6666',
-    data: [11, 72, 86, 51, 20, 24, 32, 49]
-}/* , {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-}, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-} */
-],
-
-responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 500
-        },
-        chartOptions: {
-            legend: {
-                    y:0,
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'top'
-            }
-        }
-    }]
-}
-
-});
-
-//voltage chart
-Highcharts.chart('container2', {
-    chart: {
-  backgroundColor: '#f6f6f6',
-  polar: true,
-  type: 'spline',
-},
-title: {
-    text: 'VOLTAGE',
-    verticalAlign: 'top',
-    align:'left',
-    x: 5,
-    y:20
-},
-
-/* subtitle: {
-    text: 'Source: thesolarfoundation.com'
-}, */
-
-yAxis: {
-    title: {
-        text: 'Voltage (V)'
-    }
-},
-
-xAxis: {
-title: {
-        text: 'Time (s)'
-    },
-    /* accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
-    } */
-},
-
-legend: {
-    /* layout: 'horizontal',
-    align: 'center-top',
-    verticalAlign: 'middle' */
-    enabled: true,
-    floating: true,
-    verticalAlign: 'top',
-    align:'center',
-    y:5, 
-    x:35
-},
-
-plotOptions: {
-    series: {
-        // label: {
-        //     connectorAllowed: false
-        // },
-        // pointStart: 2010
-        shadow: {
-            color:'#333', 
-            // offsetX:, 
-            // offsetY, 
-            opacity: 0.5,
-            width: 2
-        }
-    }
-}, 
-
-series: [{
-    name: 'Container_Voltage',
-    color:'#9900cc',
-    data: [43, 152, 127, 169, 97, 189, 137, 154]
-}, {
-    name: 'TP_Voltage',
-    color: '#ff6666',
-    data: [24, 94, 59, 115, 52, 30, 72, 99]
-}, /*{
-    name: 'Yaw',
-    data: [11, 72, 86, 81, 20, 24, 32, 49]
-}*//* , {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-}, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-} */
-],
-
-responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 500
-        },
-        chartOptions: {
-            legend: {
-                y:0,
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'top'
-            }
-        }
-    }]
-}
-
-});
-
-//accelerometer chart
-Highcharts.chart('container3', {
-    chart: {
-  backgroundColor: '#f6f6f6',
-  polar: true,
-  type: 'line',
-},
-title: {
-    text: 'ACCELEROMETER',
-    verticalAlign: 'top',
-    align:'left',
-    x: 5,
-    y:20
-},
-
-/* subtitle: {
-    text: 'Source: thesolarfoundation.com'
-}, */
-
-yAxis: {
-    title: {
-        text: 'Accelerometer (m/s^2)'
-    }
-},
-
-xAxis: {
-title: {
-        text: 'Time (s)'
-    },
-    /* accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
-    } */
-},
-
-legend: {
-    /* layout: 'horizontal',
-    align: 'center-top',
-    verticalAlign: 'middle' */
-    enabled: true,
-    floating: true,
-    verticalAlign: 'top',
-    align:'center',
-    y:5, 
-    x:75
-},
-
-plotOptions: {
-    series: {
-        // label: {
-        //     connectorAllowed: false
-        // },
-        // pointStart: 2010
-        shadow: {
-            color:'#333', 
-            // offsetX:, 
-            // offsetY, 
-            opacity: 0.5,
-            width: 2
-        }
-    }
-}, 
-
-series: [{
-    name: 'Roll',
-    color: '#ff6666',
-    data: [43, 152, 157, 169, 97, 119, 137, 154]
-}, {
-    name: 'Pitch',
-    // color:'#8500be',
-    color:'#9900cc',
-    data: [24, 104, 129, 99, 52, 60, 72, 99]
-}, {
-    name: 'Yaw',
-    // color:'#1f3f49',
-    color:'#006600',
-    data: [11, 72, 86, 51, 20, 24, 32, 49]
-}/* , {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-}, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-} */
-],
-
-responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 500
-        },
-        chartOptions: {
-            legend: {
-                y:0,
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'top'
-            }
-        }
-    }]
-}
-
-});
-
-//temperature chart 
-Highcharts.chart('container4', {
-    chart: {
-  backgroundColor: '#f6f6f6',
-  polar: true,
-  type: 'spline',
-},
-title: {
-    text: 'TEMPERATURE',
-    verticalAlign: 'top',
-    align:'left',
-    x: 5,
-    y:20
-},
-
-/* subtitle: {
-    text: 'Source: thesolarfoundation.com'
-}, */
-
-yAxis: {
-    title: {
-        text: 'Temperature (`C)'
-    }
-},
-
-xAxis: {
-title: {
-        text: 'Time (s)'
-    },
-    /* accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
-    } */
-},
-
-legend: {
-    /* layout: 'horizontal',
-    align: 'center-top',
-    verticalAlign: 'middle' */
-    enabled: true,
-    floating: true,
-    verticalAlign: 'top',
-    align:'center',
-    y:5, 
-    x:57
-},
-
-plotOptions: {
-    series: {
-        // label: {
-        //     connectorAllowed: false
-        // },
-        // pointStart: 2010
-        shadow: {
-            color:'#333', 
-            // offsetX:, 
-            // offsetY, 
-            opacity: 0.5,
-            width: 2
-        }
-    }
-}, 
-
-series: [{
-    name: 'Container_Temp',
-    color: '#ff6666',
-    data: [43, 152, 127, 169, 97, 189, 137, 154]
-}, {
-    name: 'TP_Temp',
-    color:'#006600',
-    data: [24, 94, 59, 115, 52, 30, 72, 99]
-}, /*{
-    name: 'Yaw',
-    data: [11, 72, 86, 81, 20, 24, 32, 49]
-}*//* , {
-    name: 'Project Development',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-}, {
-    name: 'Other',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-} */
-],
-
-responsive: {
-    rules: [{
-        condition: {
-            maxWidth: 500
-        },
-        chartOptions: {
-            legend: {
-                y:0,
-                layout: 'horizontal',
-                align: 'center',
-                verticalAlign: 'top'
-            }
-        }
-    }]
-}
-
-});
-
 //backend formatting
 var container_time = [], tp_time = [];
 var container_alt = [], tp_alt = [];
@@ -671,7 +54,7 @@ socket.on('data', (arr) => {
     document.getElementById('time-value').textContent = arr[1];
     document.getElementById('pc_text').textContent = arr[2];
     if(arr[3] == "C"){
-        // container_time.push(data[1]);
+        container_time.push(arr[1]);
         document.getElementById('pt_text').textContent = 'Container';
         container_alt.push(arr[6]);
         container_temp.push(arr[7]);
@@ -708,7 +91,7 @@ socket.on('data', (arr) => {
         document.getElementById('tp_ss_text').textContent = arr[17];
         document.getElementById('pe_text').textContent = arr[16];
         //TP Graph
-        // tp_time.push(arr[1]);
+        tp_time.push(arr[1]);
         tp_alt.push(arr[4]);
         tp_temp.push(arr[5]);
         tp_volt.push(arr[6]);
@@ -733,11 +116,114 @@ socket.on('data', (arr) => {
         }) 
     } 
 //     //Update
-    alt.series[0].update(container_alt);
-    alt.series[1].update(tp_alt);
-//     temp.update();
-//     volt.update();
-//     gyro.update();
-//     accel.update();
-//     mag.update();
+    // alt.series[0].update(container_alt);
+    // alt.series[1].update(tp_alt);
+    alt.update();
+    // temp.update();
+    // volt.update();
+    // gyro.update();
+    // accel.update();
+    // mag.update();
+});
+
+
+//charts
+Chart.defaults.global.legend.labels.usePointStyle = true;
+
+//altitude chart
+const altitude=document.getElementById('altitude').getContext('2d');
+const alt = new Chart(altitude, {
+    type: "line",
+    data: {
+        labels: container_time,
+        datasets: [{
+        fill: false,     
+        label: ' CONTAINER_ALTITUDE             ',
+        lineTension: 0,
+        // backgroundColor: "rgb(62, 149, 205, 1)",    
+        // borderColor: "rgb(62, 149, 205)",
+        borderColor: '#006600',
+        pointBackgroundColor:"#006600",
+        // radius: 0,
+        data: container_alt,
+        // borderWidth:2,
+        // pointRadius:1,
+        },
+    {
+        fill: false,
+        label:' TP ALTITUDE',
+        lineTension: 0,
+        // backgroundColor: "rgb(228, 68, 150, 0.8)",    
+        // borderColor: "rgb(255, 96, 178, 0.8)",
+        borderColor:'#9900cc',
+        // pointBackgroundColor:"rgb(255, 96, 178, 0.8)", 
+        pointBackgroundColor:"#9900cc", 
+        // radius: 0,
+        data: tp_alt,
+        // borderWidth:2,
+        // pointRadius:1,
+    }]
+    },
+    
+    // options: {
+    //     legend: {display: false},
+    //     scales: {
+    //     yAxes: [{ticks: {min: 0, max:20}}],  
+    //     },
+    // },
+    options : {
+        plugins: {
+            legend: {
+                display: true,
+                // position: 'right',
+                // align:'',
+                // floating: true,
+                // position: 'left',
+                // verticalAlign: 'left',
+                // align:'center',
+                labels: {
+                    // color: 'rgb(255, 99, 132)'
+                    // usePointStyle:true,
+                    font: {
+                        size: 26,
+                        family: "'Verdana', sans-serif",
+                    }
+                }
+            }
+        },
+        // legend: {display: true},
+        responsive: true,
+        maintainAspectRatio: false,
+    // title: {
+    //     display: true,
+    //     text: 'Altitude',
+    //     position: 'left',
+    //     // verticalAlign: 'top',
+    //     // align:'left',
+    //     // x: 5,
+    //     // y:20
+    //     // style: {font-size: 1, font-weight: bold}
+    // },
+    position:'left',
+    align:'start',
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Time (s)'
+            },
+            ticks: {
+                beginAtZero: true
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Altitude (m)'
+            },
+        }],
+    }
+    }
 });
