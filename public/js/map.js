@@ -1,5 +1,5 @@
 // var mymap = L.map('gpsmap').setView([19.1760, 72.9777], 8); //([lat, long], zoom) =
-var mymap = L.map('gpsmap').setView([0, 0], 1);
+var mymap = L.map('gpsmap').setView([70, 15], 4);
 
 const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 // const marker = L.marker([19.0760, 72.8777]).addTo(mymap);
@@ -45,15 +45,10 @@ function getloc(){
 getloc;
 
 const socket2 = io.connect('http://localhost:3000/');
-firstTime = true;
+
 socket2.on('data', (arr) => {
     if(arr[3]=='C'){
         marker.setLatLng([arr[10], arr[11]]);
-        
-        if (firstTime) {
-            mymap.setView([arr[10], arr[11]], 1);
-            firstTime = false;
-        }
 
         const circle = L.circle([arr[10], arr[11]], {
             color: "red",
@@ -74,3 +69,9 @@ socket2.on('data', (arr) => {
 //       map.invalidateSize();
 //     }, 0);
 //  }
+
+        // firstTime = true;
+        // if (firstTime) {
+        //     mymap.setView([arr[10], arr[11]], 1);
+        //     firstTime = false;
+        // }
