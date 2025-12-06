@@ -6,6 +6,10 @@
 const SerialPort = require("serialport"); //package in node js to connect to port
 const Readline = require("@serialport/parser-readline"); //to make incoming data easily readable and clear for using
 
+const { makeCSV } = require('./src/file');
+const { parsePayload, parseContainer } = require('./src/parse')
+const {sendMQTT} = require('./src/mqtt');
+
 //npm i socket.io
 const socket = require('socket.io');
 
@@ -29,29 +33,69 @@ port.pipe(parser);
 //read the data from the serial port by turning on the parser
 // parser.on("data", (line) => console.log(line));
 
+port.on('open', async () => {
+    await port.flush();
+    console.log(`Port opened at ${port.path} at ${port.settings.baudRate} baudrate`);
+})
+
+port.on('error', async (error) => {
+    console.log(error);
+})
+
 const io = socket(server);
 io.sockets.on('connection', connect);
 
+var cnt = 0;
+var cmd_echo;
+
 function connect(s) {
     console.log('Connected: '+s.id);
+
+    s.on('cmd', (cmd) => {
+        const arrCmd = cmd.split(',');
+        cmd_echo = arrCmd[2] + "_" + arrCmd[3];
+        port.write(cmd_echo);
+    })
+
     parser.on("data", (line) => {
+         if (cmd_echo == undefined) {
+            return
+        }
+
         const arrData = line.split(',');
-        
+
+        var newLine;
+        if (arrData[3] == 'C') {
+            arrData[arrData.length-1] = cmd_echo;
+            newLine = arrData.toString()+"\n";
+        } else {
+            newLine = line;
+        }
+
+        var obj = {};     //declaring object
+
+        //if container telemetry data
         if(arrData[3]=='C'){
             fs.writeFile('public/csv/container.csv',line,{'flag':'a'},(err)=>{
                 if(err){
                     throw err;
                 }
             });
+            obj = parseContainer(arrData); // parsing array to object
         }
+
+        //if tethered payload telemetry data
         else if(arrData[3]=='T'){
             fs.writeFile('public/csv/payload.csv',line,{'flag':'a'},(err)=>{
                 if(err){
                     throw err;
                 }
             });
+            obj = parsePayload(arrData) // parsing array to object
         }
         s.emit('data', arrData);
+        makeCSV(arrData[3], newLine); // making csv files
+        sendMQTT(newLine);
     });
 
 };
